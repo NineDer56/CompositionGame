@@ -1,5 +1,5 @@
 package com.example.compositiongame.domain.entity
 
-enum class Level {
+enum class Level{
     TEST, EASY, MEDIUM, HARD
 }
