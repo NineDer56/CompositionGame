@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/textViewVisibleNumber"
         app:layout_constraintTop_toTopOf="@id/textViewVisibleNumber"
-        tools:text="\?" />
+        android:text="@string/question" />
 
     <TextView
         android:id="@+id/textViewRightAnswers"
@@ -74,7 +74,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewVisibleNumber"
-        tools:text="Правильных ответов 10 (минимум 3)" />
+        android:text="@string/right_answers_amount" />
 
     <ProgressBar
         android:id="@+id/progressBar"

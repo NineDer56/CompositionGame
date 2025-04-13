@@ -1,15 +1,20 @@
 package com.example.compositiongame.presentation.fragment
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.compositiongame.R
+import com.example.compositiongame.data.GameRepositoryImpl
 import com.example.compositiongame.databinding.FragmentGameBinding
 import com.example.compositiongame.domain.entity.GameResult
 import com.example.compositiongame.domain.entity.GameSettings
 import com.example.compositiongame.domain.entity.Level
+import com.example.compositiongame.domain.entity.Question
 
 class GameFragment : Fragment() {
 
@@ -18,6 +23,7 @@ class GameFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentGameBinding is null")
 
     private lateinit var level: Level
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,21 +41,9 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textViewSum.setOnClickListener {
-            launchGameFinishedFragment(
-                GameResult(
-                    true,
-                    10,
-                    GameSettings(
-                        10,
-                        7,
-                        50,
-                        10
-                    )
-                )
-            )
-        }
     }
+
+
 
     private fun launchGameFinishedFragment(gameResult: GameResult) {
         requireActivity().supportFragmentManager.beginTransaction()
