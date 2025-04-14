@@ -55,15 +55,14 @@ class GameFinishedFragment : Fragment() {
                 false -> imageViewEmoji.setImageResource(R.drawable.ic_sad)
             }
 
-            val requiredAnswers = TextViewRequiredAnswers.text.toString()
-            val answers = TextViewAnswers.text.toString()
-            val requiredPercentage = TextViewRequiredPercentage.text.toString()
-            val percentage = TextViewPercentage.text.toString()
+            TextViewRequiredAnswers.text = String.format(getString(R.string.required_amount_of_right_answers), gameResult.gameSettings.minCountOfRightAnswers.toString())
 
-            TextViewRequiredAnswers.text = String.format(requiredAnswers, gameResult.gameSettings.minCountOfRightAnswers.toString())
-            TextViewAnswers.text = String.format(answers, "5") //TODO
-            TextViewRequiredPercentage.text = String.format(requiredPercentage, gameResult.gameSettings.minPercentOfRightAnswers.toString())
-            TextViewPercentage.text = String.format(percentage,"10") //TODO
+            TextViewAnswers.text = String.format(getString(R.string.your_score), gameResult.countOfRightAnswers.toString())
+
+            TextViewRequiredPercentage.text = String.format(getString(R.string.required_percent_of_right_answers), gameResult.gameSettings.minPercentOfRightAnswers.toString())
+
+            TextViewPercentage.text = String.format(getString(R.string.right_answers_percentage),gameResult.percentage.toString())
+
         }
     }
 

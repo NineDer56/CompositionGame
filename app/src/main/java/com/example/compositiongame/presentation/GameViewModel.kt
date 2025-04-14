@@ -21,7 +21,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val generateQuestionUseCase = GenerateQuestionUseCase(repository)
     private val getGameSettingsUseCase = GetGameSettingsUseCase(repository)
 
-    private val context = application
+    val context = application
 
     private lateinit var gameSettings: GameSettings
     private lateinit var level: Level
@@ -39,7 +39,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private var countOfRightAnswers = 0
     private var countOfQuestions = 0
 
-    private val _percentOfRightAnswers = MutableLiveData<Int>()   // TODO(зачем?)
+    private val _percentOfRightAnswers = MutableLiveData<Int>()
     val percentOfRightAnswers : LiveData<Int>
         get() = _percentOfRightAnswers
 
@@ -68,6 +68,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         getGameSettings(level)
         startTimer()
         generateQuestion()
+        updateProgress()
     }
 
     private fun getGameSettings(level : Level){
@@ -99,7 +100,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         return String.format("%02d:%02d", min, sec)
     }
 
-    private fun chooseAnswer(number: Int){
+    fun chooseAnswer(number: Int){
         checkAnswer(number)
         updateProgress()
         generateQuestion()
@@ -127,6 +128,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun calculatePercentOfRightAnswers() : Int{
+        if(countOfQuestions == 0) return 0
         return ((countOfRightAnswers / countOfQuestions.toDouble()) * 100).toInt()
     }
 
