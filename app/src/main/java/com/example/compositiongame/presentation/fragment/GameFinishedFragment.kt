@@ -34,37 +34,12 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         with(binding){
+            gameResult = args.gameResult
 
             buttonTryAgain.setOnClickListener{
                 retryGame()
             }
-
-            when(args.gameResult.winner){
-                true -> imageViewEmoji.setImageResource(R.drawable.ic_smile)
-                false -> imageViewEmoji.setImageResource(R.drawable.ic_sad)
-            }
-
-            TextViewRequiredAnswers.text = String.format(
-                getString(R.string.required_amount_of_right_answers),
-                args.gameResult.gameSettings.minCountOfRightAnswers.toString()
-            )
-
-            TextViewAnswers.text = String.format(
-                getString(R.string.your_score),
-                args.gameResult.countOfRightAnswers.toString()
-            )
-
-            TextViewRequiredPercentage.text = String.format(
-                getString(R.string.required_percent_of_right_answers),
-                args.gameResult.gameSettings.minPercentOfRightAnswers.toString()
-            )
-
-            TextViewPercentage.text = String.format(
-                getString(R.string.right_answers_percentage),
-                args.gameResult.percentage.toString()
-            )
         }
     }
 

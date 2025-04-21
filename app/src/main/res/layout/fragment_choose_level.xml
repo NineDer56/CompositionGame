@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".presentation.fragment.ChooseLevelFragment">
-
-    <TextView
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:textAlignment="center"
-        android:text="@string/choose_level"
-        android:textSize="24sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".presentation.fragment.ChooseLevelFragment">
 
-    <Button
-        android:id="@+id/buttonTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/level_test"
-        android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textAlignment="center"
+            android:text="@string/choose_level"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/buttonEasy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@android:color/holo_green_light"
-        android:text="@string/level_easy"
-        android:textSize="16sp" />
+        <Button
+            android:id="@+id/buttonTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/level_test"
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/buttonMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@android:color/holo_orange_light"
-        android:text="@string/level_medium"
-        android:textSize="16sp" />
+        <Button
+            android:id="@+id/buttonEasy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:text="@string/level_easy"
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/buttonHard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:text="@string/level_hard"
-        android:textSize="16sp" />
+        <Button
+            android:id="@+id/buttonMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:text="@string/level_medium"
+            android:textSize="16sp" />
 
-
-</LinearLayout>
+        <Button
+            android:id="@+id/buttonHard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="@string/level_hard"
+            android:textSize="16sp" />
+    </LinearLayout>
+</layout>
