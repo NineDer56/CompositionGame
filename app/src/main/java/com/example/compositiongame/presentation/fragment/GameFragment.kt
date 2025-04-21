@@ -15,6 +15,7 @@ import com.example.compositiongame.databinding.FragmentGameBinding
 import com.example.compositiongame.domain.entity.GameResult
 import com.example.compositiongame.domain.entity.Level
 import com.example.compositiongame.presentation.GameViewModel
+import com.example.compositiongame.presentation.GameViewModelFactory
 
 class GameFragment : Fragment() {
 
@@ -24,12 +25,17 @@ class GameFragment : Fragment() {
 
     private lateinit var level: Level
 
+    private val viewModelFactory : GameViewModelFactory by lazy {
+        GameViewModelFactory(
+            requireActivity().application,
+            level
+        )
+    }
+
     private val viewModel: GameViewModel by lazy{
         ViewModelProvider(
             this,
-            AndroidViewModelFactory.getInstance(
-                requireActivity().application
-            )
+            viewModelFactory
         )[(GameViewModel::class.java)]
     }
 
@@ -62,7 +68,6 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
         setOnOptionsClickListeners()
-        viewModel.startGame(level)
     }
 
 
